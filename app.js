@@ -3,6 +3,7 @@ const app = express();
 const port = process.env.PORT || 3001;
 
 app.get('/webhook/', function (req, res) {
+  console.log(req.body);
   if (req.query['hub.verify_token'] === 'TESTETOKEN') {
      res.send(req.query['hub.challenge'])
      console.log('Sucess, Challenge loop crossed')
